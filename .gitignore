@@ -1,5 +1,6 @@
 *.class
 target/
+.settings/
 
 # Eclipse m2e generated files
 # Eclipse Core
