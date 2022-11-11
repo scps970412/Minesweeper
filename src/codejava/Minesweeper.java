@@ -1,5 +1,6 @@
 package codejava;
 
+import java.io.ObjectInputFilter.Status;
 import java.util.Scanner;
 
 public class Minesweeper {
@@ -32,7 +33,38 @@ public class Minesweeper {
 
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
-                map[i][j].printCode();
+                switch (map[i][j]) {
+                case initial:
+                    System.out.print(0);
+                    break;
+                case one:
+                    System.out.print(1);
+                    break;
+                case two:
+                    System.out.print(2);
+                    break;
+                case three:
+                    System.out.print(3);
+                    break;
+                case four:
+                    System.out.print(4);
+                    break;
+                case five:
+                    System.out.print(5);
+                    break;
+                case six:
+                    System.out.print(6);
+                    break;
+                case seven:
+                    System.out.print(7);
+                    break;
+                case eight:
+                    System.out.print(8);
+                    break;
+                case mines:
+                    System.out.print(9);
+                    break;
+                }
             }
             System.out.println();
         }
@@ -41,7 +73,7 @@ public class Minesweeper {
     private static void initMap() {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
-                map[i][j] = State.zero;
+                map[i][j] = State.initial;
             }
         }
     }
@@ -49,7 +81,7 @@ public class Minesweeper {
     private static void addMark(int x, int y) {
         if (x >= 0 && x < size && y >= 0 && y < size && map[x][y] != State.mines) {
             switch (map[x][y]) {
-            case zero:
+            case initial:
                 map[x][y] = State.one;
                 break;
             case one:
@@ -57,6 +89,9 @@ public class Minesweeper {
                 break;
             case two:
                 map[x][y] = State.three;
+                break;
+            case three:
+                map[x][y] = State.four;
                 break;
             case four:
                 map[x][y] = State.five;
@@ -75,58 +110,6 @@ public class Minesweeper {
     }
 
     enum State {
-        zero {
-            public void printCode() {
-                System.out.print(0);
-            }
-        },
-        one {
-            public void printCode() {
-                System.out.print(1);
-            }
-        },
-        two {
-            public void printCode() {
-                System.out.print(2);
-            }
-        },
-        three {
-            public void printCode() {
-                System.out.print(3);
-            }
-        },
-        four {
-            public void printCode() {
-                System.out.print(4);
-            }
-        },
-        five {
-            public void printCode() {
-                System.out.print(5);
-            }
-        },
-        six {
-            public void printCode() {
-                System.out.print(6);
-            }
-        },
-        seven {
-            public void printCode() {
-                System.out.print(7);
-            }
-        },
-        eight {
-            public void printCode() {
-                System.out.print(8);
-            }
-        },
-        mines {
-            public void printCode() {
-                System.out.print(9);
-            }
-        };
-
-        public abstract void printCode();
-
-    }
+        initial, one, two, three, four, five, six, seven, eight, mines
+    };
 }
