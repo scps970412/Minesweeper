@@ -1,6 +1,5 @@
 package codejava;
 
-import java.io.ObjectInputFilter.Status;
 import java.util.Scanner;
 
 public class Minesweeper {
@@ -108,8 +107,4 @@ public class Minesweeper {
             }
         }
     }
-
-    enum State {
-        initial, one, two, three, four, five, six, seven, eight, mines
-    };
 }
